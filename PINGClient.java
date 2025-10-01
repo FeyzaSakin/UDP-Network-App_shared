@@ -111,7 +111,7 @@ class PINGClient {
         clientSocket = new DatagramSocket();
 
         // If the IP Address can be found from the hostName, then send and recieve
-        // packets and print out the packets headers and pay loads
+        // packets and print out the packets headers and payloads
         try {
             // Convert hostName to the IP Address
             String serverIP = InetAddress.getByName(server).getHostAddress();
@@ -126,18 +126,18 @@ class PINGClient {
             // Create packet and send to server for the number of packets to send
             for (int i = 1; i <= nPackets; i++) {
 
-                // Have a random number for the pay load size between 150 - 300
+                // Have a random number for the payload size between 150 - 300
                 randomPay = (min + (int) (Math.random() * ((max - min) + 1)));
-                // Subtract the initial size from the random pay load size
+                // Subtract the initial size from the random payload size
                 restBytes = randomPay - initialRestBytes;
-                // Add the pay size to the total pay load size
+                // Add the pay size to the total payload size
                 total_Pay_Load_size += randomPay;
 
                 // Reset rest for each packet to avoid growing indefinitely
                 rest = "";
 
                 // Create a string of random letters & numbers as much as the unused bytes left
-                // from the random pay load size
+                // from the random payload size
                 for (int j = 0; j < restBytes; j++) {
                     int index = ((int) (Math.random() * (splitRandomLetNum.length)));
                     // Add the randomly picked letter or number to the "rest" string
@@ -153,10 +153,10 @@ class PINGClient {
                 String[] header = { "1", Integer.toString(clientID), Integer.toString(i), timeStamp,
                         Integer.toString(randomPay) };
 
-                // Have a string array to store the pay load information
+                // Have a string array to store the payload information
                 String[] payload = { clientHostName, projectName, rest };
 
-                // Combine header and pay load string array in "combinedArray" string array
+                // Combine header and payload string array in "combinedArray" string array
                 combinedArray = new String[header.length + payload.length];
                 System.arraycopy(header, 0, combinedArray, 0, header.length);
                 System.arraycopy(payload, 0, combinedArray, header.length, payload.length);
@@ -165,24 +165,24 @@ class PINGClient {
                 // between elements
                 message = String.join(",", combinedArray);
 
-                // Place packet's header and the pay load combined in the buffer
+                // Place packet's header and the payload combined in the buffer
                 sendData = message.getBytes();
 
                 // Create packet and send to server
                 sendPacket = new DatagramPacket(sendData, sendData.length, serverIPAddress, port);
                 clientSocket.send(sendPacket);
 
-                // Print out the request packet header and pay load for the packet
+                // Print out the request packet header and payload for the packet
                 System.out.println("---------- Ping Request Packet Header ----------");
                 System.out.println("Version: 1");// Print out the version of the system
                 System.out.println("Client ID: " + clientID);// Print out the client ID
                 System.out.println("Sequence No.: " + i);// Print out the sequence number of the sent packet
                 System.out.println("Time: " + timeStamp);// Print out the current time the packet was constructed
-                System.out.println("Payload Size: " + randomPay);// Print out the randomly picked pay load size
+                System.out.println("Payload Size: " + randomPay);// Print out the randomly picked payload size
                 System.out.println("--------- Ping Request Packet Payload ------------");
                 System.out.println("Host: " + clientHostName);// Print out the host name of the client
                 System.out.println("Project-name: " + projectName);// Print out the project name
-                System.out.println("Rest: " + rest);// Print out the unused bytes left from the random pay load size
+                System.out.println("Rest: " + rest);// Print out the unused bytes left from the random payload size
                 System.out.println("---------------------------------------\n");
 
                 // If the response is received within the wait seconds
@@ -206,7 +206,7 @@ class PINGClient {
                     // Store the received response in a string array and split in each comma
                     splitReceived = serverSentence.split(",");
 
-                    // Print out the received packet's header and pay load
+                    // Print out the received packet's header and payload
                     System.out.println("---------- Received Ping Response Packet Header ----------");
                     System.out.println("Version: " + splitReceived[0]);// Print out the version of the system
                     System.out.println("Client ID: " + splitReceived[1]);// Print out the client ID
