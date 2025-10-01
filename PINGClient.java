@@ -5,8 +5,8 @@
   ***************************************************************************************
   * Function:
   * 		- Sents packets to the server as a client
-  * 		- Prints the header and pay load of the sent packet and response recieved packet.  
-  * 		- At the end, summarizes the number of sent packets, the number of response packets, minimum RTT, maximum RTT, average RTT, and the lost packets' percentage, and the average pay load size
+  * 		- Prints the payloads of the sent packet and response recieved packet with their headers  
+  * 		- At the end, summarizes the number of sent packets, the number of response packets, minimum RTT, maximum RTT, average RTT, and the lost packets' percentage, and the average payload size
   *----------------------------------------------------------------------------------------------------------------------------------------
   *    Input:
   *          Parameters - 	argv[0] || The IP or the host name of the server
@@ -15,7 +15,7 @@
   *          				argv[3] || The Number of Packets
   *          				argv[4] || The seconds the client can wait for the response 
   *    Output:
-  *          Return – The header and pay load of the sent packet and the header and pay load of the response received packet
+  *          Return – The payloads of the sent packet and the response received packet with their headers
 **************************************************************************************/
 import java.net.*;
 import java.text.DecimalFormat;
