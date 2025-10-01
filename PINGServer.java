@@ -10,7 +10,7 @@
  *          Parameters - 	argv[0] || The port number
  *          				argv[1] || The percentage loss
  *    Output:
- *          Return – The header and pay load of the received packet and the header and pay load of the response received packet
+ *          Return – The payload of the received packet and the payload of the response received packet with their headers
  **************************************************************************************/
 import java.io.*;
 import java.net.*;
