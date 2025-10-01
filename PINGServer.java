@@ -4,7 +4,7 @@
  ***************************************************************************************
  * Function:
  * 		- Receives packets from the client as a server
- *		- Prints the header and pay load of the received packets and the response packets
+ *		- Prints the header and payload of the received packets and the response packets
  *----------------------------------------------------------------------------------------------------------------------------------------
  *    Input:
  *          Parameters - 	argv[0] || The port number
