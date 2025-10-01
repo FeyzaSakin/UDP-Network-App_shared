@@ -42,13 +42,13 @@ class PINGClient {
         // client variables
         String serverSentence; // Stores the received response
         int initialRestBytes; // The used bytes
-        int restBytes; // The subtraction of the used bytes from the random pay load size "randomPay"
-        int min = 150; // The minimum number of pay load size
-        int max = 300; // The maximum number of pay load size
-        int randomPay; // The random number for pay load size
+        int restBytes; // The subtraction of the used bytes from the random payload size "randomPay"
+        int min = 150; // The minimum number of payload size
+        int max = 300; // The maximum number of payload size
+        int randomPay; // The random number for payload size
         int nPingResponse = 0; // The number of ping responses
-        int total_Pay_Load_size = 0; // The total pay load size
-        int ave_Pay_Load_Size = 0; // The average pay load size
+        int total_Pay_Load_size = 0; // The total payload size
+        int ave_Pay_Load_Size = 0; // The average payload size
         int calcLoss; // The calculated loss
         float totalRTT = 0; // The total RTT
         float aveRTT = 0; // The average RTT
@@ -59,13 +59,13 @@ class PINGClient {
         double rTimeStamp = 0; // Stores the current time the response was received
 
         String projectName = "My_UDP_Network_Project";
-        String initialRest; // The string of packet pay load without the rest
+        String initialRest; // The string of packet payload without the rest
         String randomLetNum = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"; // Random letters &
                                                                                                 // numbers
         String rest = "";// The rest string made of random letters and numbers
-        String message;// Combination of header and pay load
+        String message;// Combination of header and payload
         String timeStamp;// String type of the time stamp, converted from double
-        String[] combinedArray;// The combination of the header and the pay load parts
+        String[] combinedArray;// The combination of the header and the payload parts
         String[] splitRandomLetNum;// Stores the "randomLetNum" string's elements splited each comma
         String[] splitReceived;// Stores the received response content
         // Splitting "randomLetNum" string's elements each comma and store in
@@ -251,7 +251,7 @@ class PINGClient {
             // ping responses)) / (number of packets)
             calcLoss = ((100) * (nPackets - nPingResponse)) / nPackets;
 
-            // Calculate the average Pay Load Size
+            // Calculate the average payload Size
             ave_Pay_Load_Size = total_Pay_Load_size / nPackets;
 
             // Print out the summary
