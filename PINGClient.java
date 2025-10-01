@@ -119,8 +119,7 @@ class PINGClient {
 
             // Print out the arguments: IP address, port number, client ID, number of
             // packets to send, and the seconds to wait
-            System.out
-                    .println("\r\nPINGClient started with server IP: " + serverIP + ", port: " + port + ", client ID: "
+            System.out.println("\r\nPINGClient started with server IP: " + serverIP + ", port: " + port + ", client ID: "
                             + clientID + ", packets: " + nPackets + ", wait: " + waitSec + "\n");
 
             // Create packet and send to server for the number of packets to send
