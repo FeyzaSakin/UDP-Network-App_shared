@@ -105,7 +105,7 @@ class PINGServer {
                 // Pick a random number for the packet's percentage loss between 1 - 100
                 randomLoss = (minLoss + (int) (Math.random() * ((maxLoss - minLoss) + 1)));
 
-                // Store the received packet header and pay load data by splitting with commas
+                // Store the received packet header and payload data by splitting with commas
                 splitReceived = clientSentence.split(",");//
                 splitResponse = serverSentence.split(",");//
 
@@ -115,7 +115,7 @@ class PINGServer {
                     System.out.println("\nIP:" + IPString + " :: Port:" + clientPort + " : ClientID:" + splitReceived[1]
                             + " :: Seq#:" + splitReceived[2] + " : DROPPED");
 
-                    // Print out the received request packet's header and pay load
+                    // Print out the received request packet's header and payload
                     System.out.println("----------Received Ping Request Packet Header----------");
                     System.out.println("Version: " + splitReceived[0]);
                     System.out.println("Client ID: " + splitReceived[1]);
@@ -139,7 +139,7 @@ class PINGServer {
                     DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, clientPort);
                     serverSocket.send(sendPacket);
 
-                    // Print out the received request packet's header and pay load
+                    // Print out the received request packet's header and payload
                     System.out.println("----------Received Ping Request Packet Header----------");
                     System.out.println("Version: " + splitReceived[0]);
                     System.out.println("Client ID: " + splitReceived[1]);
@@ -152,7 +152,7 @@ class PINGServer {
                     System.out.println("Rest: " + splitReceived[7]);
                     System.out.println("---------------------------------------\n");
 
-                    // Print out the packet's response header and pay load
+                    // Print out the packet's response header and payload
                     System.out.println("----------- Ping Response Packet Header ----------");
                     System.out.println("Version: " + splitResponse[0]);
                     System.out.println("Client ID: " + splitResponse[1]);
